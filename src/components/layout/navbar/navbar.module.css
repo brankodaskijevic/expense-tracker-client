@@ -1,23 +1,26 @@
-/* const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-})); */
-
-.title {
-  flex-grow: 1;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: 2px solid #2f89fc;
+  background-color: #2f89fc;
 }
 
-.menuButton {
-  margin-right: 2;
+.navbar ul {
+  display: flex;
 }
 
-.root {
-  flex-grow: 1;
+.navbar a {
+  color: #fff;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+.navbar a:hover {
+  color: #24292E;
 }

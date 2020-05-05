@@ -1,14 +1,19 @@
-import React from 'react';
-import { Counter } from './features/counter/Counter';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Provider } from 'react-redux'
+import store from './store/store';
 import './App.css';
-import Button from '@material-ui/core/Button'
-import Navbar from '../src/components/layout/navbar/navbar'
+import Navbar from './components/layout/navbar/navbar';
+import Landing from './components/landing/landing';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Route exact path='/' component={ Landing } />
+        </Fragment>
+      </Router>
   );
 }
 
