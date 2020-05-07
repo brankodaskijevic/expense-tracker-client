@@ -1,7 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from './landing.module.css'
+import { useSelector } from "react-redux";
+import { getGeneralInfo } from "../../service/api";
 
-function landing() {
+const Landing = (props) => {
+
+  const generalData = useSelector(state => state.general)
+
+  useEffect(() => {
+    // if (generalData.activeUsers && 
+    //   generalData.totalBalance &&
+    //   generalData.allExpenses &&
+    //   generalData.allIncomes === undefined
+    // ) {
+    //   getGeneralInfo()
+    // }
+
+    getGeneralInfo()
+  }, [])
 
   return (
     <Fragment>
@@ -16,12 +33,12 @@ function landing() {
               users
             </p>
             <div className={styles.buttons}>
-              <a href="register.html" className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}>
+              <Link to="/register" className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}>
                 Sign Up
-              </a>
-              <a href="login.html" className={`${styles.btn} ${styles.lead}`}>
+              </Link>
+              <Link to="/login" className={`${styles.btn} ${styles.lead}`}>
                 Sign In
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -30,36 +47,36 @@ function landing() {
       <section className={styles.about}>
         <div className={styles.leftSection}>
           <h1>Number of active users:</h1>
-          <h2 className={styles.textPrimary}>4.000.000</h2>
+          <h2 className={styles.textPrimary}>{generalData.activeUsers ?? null}</h2>
           <div className={styles.devider}></div>
           <h1>With a Total Balance of:</h1>
-          <h2 className={styles.textSuccess}>4.000.000</h2>
+          <h2 className={styles.textSuccess}>{generalData.totalBalance ?? null}</h2>
         </div>
         <div className={styles.rightSection}>
           <h1>All incomes:</h1>
-          <h2 className={styles.textSuccess}>+4.343.233</h2>
+          <h2 className={styles.textSuccess}>+{generalData.allIncomes ?? null}</h2>
           <div className={styles.devider}></div>
           <h1>All expenses:</h1>
-          <h2 className={styles.textDanger}>-4.343.233</h2>
+          <h2 className={styles.textDanger}>-{generalData.allExpenses ?? null}</h2>
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div>ExpenseTracker 1.0.0</div>
-        <div>Branko Daskijevic <i class="far fa-copyright"></i> 2020</div>
+        <div>Branko Daskijevic <i className="far fa-copyright"></i> 2020</div>
         <div>
           Made with 
           &nbsp;
-          <i class="fab fa-node-js"></i>&nbsp;
+          <i className="fab fa-node-js"></i>&nbsp;
           &nbsp;
           <i className="fab fa-react"></i>&nbsp;
-          and
+          &
           &nbsp;
-          <i class="fas fa-heart"></i>
+          <i className="fas fa-heart"></i>
         </div>
       </footer>
     </Fragment>
   );
 }
 
-export default landing;
+export default Landing;
