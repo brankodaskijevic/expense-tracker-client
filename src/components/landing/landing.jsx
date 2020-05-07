@@ -9,15 +9,13 @@ const Landing = (props) => {
   const generalData = useSelector(state => state.general)
 
   useEffect(() => {
-    // if (generalData.activeUsers && 
-    //   generalData.totalBalance &&
-    //   generalData.allExpenses &&
-    //   generalData.allIncomes === undefined
-    // ) {
-    //   getGeneralInfo()
-    // }
-
-    getGeneralInfo()
+    if (generalData.activeUsers === undefined || 
+      generalData.totalBalance === undefined ||
+      generalData.allExpenses === undefined ||
+      generalData.allIncomes === undefined
+    ) {
+      getGeneralInfo()
+    }
   }, [])
 
   return (

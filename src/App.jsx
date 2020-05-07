@@ -7,6 +7,9 @@ import Navbar from './components/layout/navbar/navbar';
 import Landing from './components/landing/landing';
 import Login from './components/auth/login/login'
 import Register from './components/auth/register/register'
+import Main from '../src/components/main/main'
+import CreatePost from './components/createPost/createPost';
+import PrivateRoute from './components/routing/PrivateRoutes';
 
 function App() {
   return (
@@ -18,6 +21,8 @@ function App() {
           <Switch>
             <Route exact path='/register' component={ Register } />
             <Route exact path='/login' component={ Login } />
+            <PrivateRoute exact path='/main' component={ Main } />
+            <Route exact path='/create-post' component={ CreatePost } />
           </Switch>
         </Fragment>
       </Router>
