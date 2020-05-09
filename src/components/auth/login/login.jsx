@@ -9,8 +9,6 @@ function Login() {
     password: "",
   });
 
-  const { email, password } = formData;
-
   const onSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
@@ -40,11 +38,11 @@ function Login() {
 
   return (
     <Fragment>
-      <section class={styles.formContainer}>
+      <section className={styles.formContainer}>
         <h1 className={`${styles.large} ${styles.textPrimary}`}>Sign In</h1>
-        <p class={styles.lead}>Sign Into Your Account</p>
-        <form onSubmit={onSubmit} class={styles.form}>
-          <div class={styles.formGroup}>
+        <p className={styles.lead}>Sign Into Your Account</p>
+        <form onSubmit={onSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
             <input
               type="text"
               name="username"
@@ -52,7 +50,7 @@ function Login() {
               onChange={onUsernameChange}
             />
           </div>
-          <div class={styles.formGroup}>
+          <div className={styles.formGroup}>
             <input
               type="password"
               name="password"
@@ -66,7 +64,7 @@ function Login() {
             className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}
           />
         </form>
-        <p class={styles.my1}>
+        <p className={styles.my1}>
           Don't have an account? <Link to="/register">Sign Up</Link>
         </p>
       </section>

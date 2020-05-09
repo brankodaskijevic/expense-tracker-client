@@ -22,7 +22,7 @@ function App() {
             <Route exact path='/register' component={ Register } />
             <Route exact path='/login' component={ Login } />
             <PrivateRoute exact path='/main' component={ Main } />
-            <Route exact path='/create-post' component={ CreatePost } />
+            <PrivateRoute exact path='/create-post' component={ CreatePost } />
           </Switch>
         </Fragment>
       </Router>

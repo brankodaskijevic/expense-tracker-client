@@ -12,16 +12,12 @@ const Register = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+    console.log('form data', formData);
 
     try {
-      if (passoword !== passoword2) {
-        console.log('Passwords do not match')
-      }
+      await register(formData);
 
-      await register(formdata);
-
-      window.location.assign("main");
+      window.location.assign("/main");
     } catch (err) {
       console.log(err);
     }
@@ -57,11 +53,11 @@ const Register = () => {
 
   return (
     <Fragment>
-      <section class={styles.formContainer}>
+      <section className={styles.formContainer}>
         <h1 className={`${styles.large} ${styles.textPrimary}`}>Sign Up</h1>
-        <p class={styles.lead}>Create Your Account</p>
-        <form onSubmit={onSubmit} class={styles.form}>
-          <div class="form-group">
+        <p className={styles.lead}>Create Your Account</p>
+        <form onSubmit={onSubmit} className={styles.form}>
+          <div className="form-group">
             <input 
               type="text" 
               name="username" 
@@ -69,7 +65,7 @@ const Register = () => {
               onChange={onUsernameChange}
             />
           </div>
-          <div class={styles.formGroup}>
+          <div className={styles.formGroup}>
             <input 
               type="email" 
               name="email" 
@@ -77,7 +73,7 @@ const Register = () => {
               onChange={onEmailChange}
             />
           </div>
-          <div class={styles.formGroup}>
+          <div className={styles.formGroup}>
             <input 
               type="password" 
               name="password" 
@@ -85,7 +81,7 @@ const Register = () => {
               onChange={onPasswordChange}
             />
           </div>
-          <div class={styles.formGroup}>
+          <div className={styles.formGroup}>
             <input
               type="password"
               name="password_confirm"
@@ -99,7 +95,7 @@ const Register = () => {
             className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}
           />
         </form>
-        <p class={styles.my1}>
+        <p className={styles.my1}>
           Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </section>

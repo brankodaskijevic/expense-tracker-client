@@ -11,9 +11,6 @@ const generalSlice = createSlice({
   name: 'general',
   initialState,
   reducers: {
-    // setActiveUsers (state, action) {
-    //   state.activeUsers = action.payload;
-    // },
     setGeneralData (state, action) {
       state.activeUsers = action.payload.activeUsers
       state.totalBalance = action.payload.totalBalance
