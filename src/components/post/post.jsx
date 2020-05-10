@@ -6,6 +6,7 @@ const Post = ({ post }) => {
 
   const {
     description,
+    likes,
     user,
   } = post
 
@@ -23,7 +24,7 @@ const Post = ({ post }) => {
           <div className={styles.devider}></div>
           <div className={styles.likeElement}>
             <input type="submit" value="Like" className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`} />
-            123
+            { likes.length }
           </div>
         </div>
       </div>

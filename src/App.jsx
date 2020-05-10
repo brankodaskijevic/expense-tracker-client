@@ -9,7 +9,10 @@ import Login from './components/auth/login/login'
 import Register from './components/auth/register/register'
 import Main from '../src/components/main/main'
 import CreatePost from './components/createPost/createPost';
+import Profile from './components/profile/profile'
 import PrivateRoute from './components/routing/PrivateRoutes';
+import CreateTransaction from './components/createTransaction/createTransaction';
+import Settings from './components/settings/settings';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
             <Route exact path='/login' component={ Login } />
             <PrivateRoute exact path='/main' component={ Main } />
             <PrivateRoute exact path='/create-post' component={ CreatePost } />
+            <PrivateRoute exact path="/profile" component={ Profile } />
+            <PrivateRoute exact path="/add-transaction" component={ CreateTransaction } />
+            <PrivateRoute exact path="/settings" component={ Settings } />
           </Switch>
         </Fragment>
       </Router>

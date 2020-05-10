@@ -6,6 +6,7 @@
   border-radius: 5px;
   padding: 0.5rem;
   margin-bottom: 2rem;
+  background-color: #fff;
 }
 
 .topPostContent {
@@ -30,7 +31,7 @@
 }
 
 .postImage {
-  height: 475px;
+  height: 425px;
   width: auto;
 }
 
@@ -50,8 +51,8 @@
 }
 
 .profilePicture {
-  width: 100px;
-  height: 100px;
+  width: auto;
+  height: 50px;
   border-radius: 50%;
 }
 

@@ -10,12 +10,25 @@ const postsSlice = createSlice({
   reducers: {
     setPosts (state, action) {
       state.posts = action.payload.data
+    },
+    setPostLike (state, action) {
+      state.posts = state.posts.map(post => {
+        if (action.payload.postId === post._id) {
+          return {
+            ...post,
+            likes: post.likes.concat([action.payload.userId])
+          }
+        }
+
+        return post
+      })
     }
   },
 });
 
 export const {
-  setPosts
+  setPosts,
+  setPostLike,
 } = postsSlice.actions;
 
 export default postsSlice.reducer;

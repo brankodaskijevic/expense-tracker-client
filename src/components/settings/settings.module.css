@@ -1,0 +1,81 @@
+.settingContainer {
+  width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 1rem 1rem;
+  margin-top: 5rem;
+  border-top: 2px solid #2f89fc;
+}
+
+.formGroup {
+  margin: 1.2rem 0;
+}
+
+.formText {
+  display: block;
+    margin-top: 0.3rem;
+    color: #888;
+}
+
+.my1 {
+  margin: 1rem 0;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: inherit;
+}
+
+.textPrimary {
+  color: #2f89fc;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-block;
+  background: #f9f9f9;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1 rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+}
+
+.btn:hover {
+  background: #333;
+  color: #f9f9f9;
+}
+
+.btnPrimary {
+  background-color: #2f89fc;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background-color: #589ffb;
+}

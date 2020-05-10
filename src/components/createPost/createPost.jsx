@@ -45,10 +45,10 @@ const CreatePost = () => {
       <section className={styles.createPostContiner}>
         <form onSubmit={onSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description">Description</label><br/>
+            <small>The description can be no longer than 500 characters</small>
             <textarea
               name="description"
-              placeholder="Description of post (max. 500 characters)"
               cols="30"
               rows="10"
               onChange={onDescriptionChange}

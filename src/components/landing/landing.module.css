@@ -94,7 +94,7 @@
 
 .about {
   height: 85vh;
-  background-color: #24292E;
+  background-color: #343a40;
   display: grid;
   grid-template-columns: 5fr 5fr;
   align-items: center;
