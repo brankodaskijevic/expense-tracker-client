@@ -70,6 +70,7 @@ const Profile = () => {
   const [formData, setFormData] = useState({
     title: "",
     amount: "",
+    category: ""
   });
 
   const onSubmit = async (event) => {
@@ -96,6 +97,13 @@ const Profile = () => {
     setFormData({
       ...formData,
       amount: event.target.value,
+    });
+  };
+
+  const onCategoryChange = (event) => {
+    setFormData({
+      ...formData,
+      category: event.target.value,
     });
   };
 
@@ -204,6 +212,18 @@ const Profile = () => {
                     />
                   </div>
                   <div className={styles.formGroup}>
+                    <label htmlFor="amount">Category of Transaction</label>
+                    <select name="category" onChange={onCategoryChange}>
+                      <option value="other">Other</option>
+                      <option value="groceries">Groceries</option>
+                      <option value="home">Home</option>
+                      <option value="investments">Investments</option>
+                      <option value="entertaiment">Entertainment</option>
+                      <option value="health">Health</option>
+                      <option value="fees">Fees</option>
+                    </select>
+                  </div>
+                  <div className={styles.formGroup}>
                     <input
                       type="submit"
                       value="Post"
@@ -219,6 +239,7 @@ const Profile = () => {
                   <tr>
                     <th>Title</th>
                     <th>Satus</th>
+                    <th>Category</th>
                     <th>Amount</th>
                   </tr>
                 </thead>

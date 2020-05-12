@@ -3,7 +3,7 @@ import styles from "./transaction.module.css";
 import { numberWithCommas } from "../../utils/helper-functions";
 
 const Transaction = ({ transaction }) => {
-  const { title, status, amount } = transaction;
+  const { title, status, category, amount } = transaction;
 
   return (
     <Fragment>
@@ -11,6 +11,9 @@ const Transaction = ({ transaction }) => {
         <td>{title}</td>
         <td className={amount > 0 ? styles.greenText : styles.redText}>
           {status}
+        </td>
+        <td>
+          {category}
         </td>
         <td className={amount > 0 ? styles.greenText : styles.redText}>
           {amount > 0 ? "+" : "-"}
