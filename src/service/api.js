@@ -22,11 +22,14 @@ export const getGeneralInfo = async () => {
 }
 
 export const login = async (formData) => {
+  console.log('login')
   const response = await axios({
     method: 'POST',
     url: '/api/v1/auth/login',
     data: formData,
   });
+
+  console.log('response', response)
 
   const token = response.data.token
 
@@ -192,8 +195,10 @@ export const likePost = async (postId) => {
     },
   })
 
+  console.log(response.data)
+
   store.dispatch(setPostLike({
     postId,
-    userId: token
+    likes: response.data.data
   }))
 }

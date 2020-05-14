@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 import * as Cookie from 'es-cookie'
@@ -7,7 +7,12 @@ import { getLoggedUser } from "../../../service/api";
 
 export default function Navbar() {
 
+  const hasToken = () => {
+    return Cookie.get('token') !== undefined
+  }
+
   const user = useSelector(state => state.user.user)
+  const [ isLoggedIn, setIsLoggedIn] = useState(hasToken())
 
   useEffect(() => {
     if (user === undefined) {
@@ -15,11 +20,10 @@ export default function Navbar() {
     }
   }, [])
 
-  const isLoggedIn = () => {
-    return Cookie.get('token') !== undefined
-  }
+  console.log('rerender')
 
-  const userLoggout = () => {
+  const userLogout = () => {
+    setIsLoggedIn(false)
     Cookie.remove('token')
   }
 
@@ -27,7 +31,7 @@ export default function Navbar() {
     <ul>
       <li><Link to="/profile">{ user?.username }</Link></li>
       <li><Link to="/settings"><i class="fas fa-cog"></i></Link></li>
-      <li><Link to="/" onClick={userLoggout}>Logout</Link></li>
+      <li><Link to="/" onClick={userLogout}>Logout</Link></li>
     </ul>
   )
 

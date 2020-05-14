@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./postWithImage.module.css";
 import { useSelector } from "react-redux";

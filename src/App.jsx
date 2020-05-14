@@ -13,6 +13,7 @@ import Profile from './components/profile/profile'
 import PrivateRoute from './components/routing/PrivateRoutes';
 import CreateTransaction from './components/createTransaction/createTransaction';
 import Settings from './components/settings/settings';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <PrivateRoute exact path="/add-transaction" component={ CreateTransaction } />
             <PrivateRoute exact path="/settings" component={ Settings } />
           </Switch>
+          <ToastContainer />
         </Fragment>
       </Router>
     </Provider>

@@ -16,7 +16,7 @@ const postsSlice = createSlice({
         if (action.payload.postId === post._id) {
           return {
             ...post,
-            likes: post.likes.concat([action.payload.userId])
+            likes: action.payload.likes
           }
         }
 
