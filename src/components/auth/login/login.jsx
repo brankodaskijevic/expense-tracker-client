@@ -4,34 +4,13 @@ import styles from "./login.module.css";
 import { login } from "../../../service/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-export const showErrorToast = (message) => (
-  toast.error(message, {
-    position: "bottom-center",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  })
-)
+import { showErrorToast } from "../../../utils/helper-functions";
 
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-
-  const notify = () => toast.error('Error message', {
-    position: "bottom-center",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  })
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -92,7 +71,6 @@ function Login() {
           Don't have an account? <Link to="/register">Sign Up</Link>
         </p>
       </section>
-            <button onClick={notify}>click me</button>
     </Fragment>
   );
 }

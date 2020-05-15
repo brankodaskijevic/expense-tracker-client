@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./register.module.css";
 import { register } from "../../../service/api";
+import { showErrorToast } from "../../../utils/helper-functions";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -14,12 +15,16 @@ const Register = () => {
     event.preventDefault();
     console.log('form data', formData);
 
+    if (formData.password !== formData.password_confirm) {
+      return showErrorToast('Password do not match')
+    }
+
     try {
       await register(formData);
 
       window.location.assign("/main");
     } catch (err) {
-      console.log(err);
+      showErrorToast(err.response.data.message)
     }
   };
 
