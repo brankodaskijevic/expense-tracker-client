@@ -167,6 +167,23 @@ export const updateUser = async (formData) => {
   return resObject
 }
 
+export const updateUserAvatar = async (formData) => {
+  const token = Cookie.get('token')
+
+  const response = await axios({
+    method: 'PATCH',
+    url: '/api/v1/users/avatar',
+    data: formData,
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+
+  const resObject = response.data
+
+  return resObject
+}
+
 export const udpatePassword = async (formData) => {
   const token = Cookie.get('token')
 

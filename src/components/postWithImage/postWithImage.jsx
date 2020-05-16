@@ -26,7 +26,7 @@ const PostWithImage = ({ post }) => {
         <div className={styles.bottomPostContent}>
           <div className={styles.bottomLeftPostSide}>
             <img
-              src={user.image ? user.image : defaultImage}
+              src={user.avatar ? user.avatar : defaultImage}
               alt="avatar"
               className={styles.profilePicture}
             />

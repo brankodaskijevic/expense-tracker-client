@@ -13,7 +13,7 @@ const Post = ({ post }) => {
       <div className={styles.postContainer}>
         <div className={styles.leftPostSide}>
           <img
-            src={user.image ? user.image : defaultImage}
+            src={user.avatar ? user.avatar : defaultImage}
             alt="avatar"
             className={styles.profilePicture}
           />

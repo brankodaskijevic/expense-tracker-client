@@ -112,7 +112,7 @@ const Profile = () => {
       <section className={styles.profileContainer}>
         <div className={styles.profilePicSide}>
           <img
-            src={user?.avatar?.data ? user?.avatar?.data : defaultImage}
+            src={user?.avatar ? user?.avatar : defaultImage}
             alt="avatar"
             className={styles.profilePicture}
           />

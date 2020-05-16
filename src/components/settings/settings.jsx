@@ -2,13 +2,22 @@ import React, { Fragment, useState } from "react";
 import styles from "./settings.module.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { updateUser, udpatePassword } from "../../service/api";
+import {
+  updateUser,
+  udpatePassword,
+  updateUserAvatar,
+} from "../../service/api";
+import { loadFile } from "../../utils/imagehelper";
 
 const Settings = () => {
   const [formData, setFormData] = useState({
     description: "",
     email: "",
     username: "",
+  });
+
+  const [avatar, setavatar] = useState({
+    avatar: undefined,
   });
 
   const [passwordData, setPasswordData] = useState({
@@ -48,6 +57,26 @@ const Settings = () => {
       ...formData,
       username: event.target.value,
     });
+  };
+
+  const onAvatarSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await updateUserAvatar(avatar);
+
+      window.location.assign("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onAvatarChange = async (event) => {
+    if (event.target.files !== undefined && event.target.files.length > 0) {
+      const avatar = await loadFile(event.target.files[0]);
+
+      setavatar({avatar});
+    }
   };
 
   const onNewPasswordSubmit = async (event) => {
@@ -128,7 +157,21 @@ const Settings = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className={styles.uploadProfileImageContainer}></div>
+            <div className={styles.uploadProfileImageContainer}>
+              <form onSubmit={onAvatarSubmit}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="avatar">Upload your avatar</label>
+                  <input type="file" name="avatar" onChange={onAvatarChange} />
+                </div>
+                <div className={styles.formGroup}>
+                  <input
+                    type="submit"
+                    value="Upload Avatar"
+                    className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}
+                  />
+                </div>
+              </form>
+            </div>
           </TabPanel>
           <TabPanel>
             <div className={styles.changePasswordContainer}>
