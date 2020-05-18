@@ -1,8 +1,8 @@
 .profileContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 4fr;
-  background-color: #2f89fc;
+  grid-template-columns: 1fr 4fr;
+  background-color: none;
   gap: 1rem;
   padding: 1rem;
   margin-top: 4rem;
@@ -15,6 +15,9 @@
   align-items: center;
   justify-content: center;
   border-right: 2px solid #fff;
+  background-color: #2f89fc;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .profilePicture {
@@ -34,6 +37,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #2f89fc;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .userPostsAndTransactions {

@@ -44,15 +44,15 @@
 }
 
 .textPrimary {
-  color: #2f89fc;
+  color: #007bff;
 }
 
 .textSuccess {
-  color: #01FF87;
+  color: #28a745;
 }
 
 .textDanger {
-  color: #FF5A57;
+  color: #dc3545;
 }
 
 .btn {
@@ -75,7 +75,7 @@
 }
 
 .btnPrimary {
-  background-color: #2f89fc;
+  background-color: #007bff;
   color: #fff;
 }
 
@@ -93,23 +93,23 @@
 }
 
 .about {
-  height: 85vh;
+  height: 100vh;
   background-color: #343a40;
-  display: grid;
-  grid-template-columns: 5fr 5fr;
+  display: flex;  
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
 }
 
-.rightSection {
-  border-left: 1px solid #2f89fc;
+.about h1 {
+  color: #6c757d;
 }
 
 .devider {
   height: 1px;
   width: 450px;
-  background-color: #2f89fc;
+  background-color: #007bff;
   margin: 1rem auto;
 }
 
@@ -122,4 +122,10 @@
   text-align: center;
   color: rgb(29, 29, 29);
   border-top: 4px solid #2f89fc;
+}
+
+.landingContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100vh;
 }

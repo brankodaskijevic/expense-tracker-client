@@ -29,6 +29,7 @@ export default function Navbar() {
 
   const authLinks = (
     <ul>
+      <li><Link to="/main">Board</Link></li>
       <li><Link to="/profile">{ user?.username }</Link></li>
       <li><Link to="/settings"><i class="fas fa-cog"></i></Link></li>
       <li><Link to="/" onClick={userLogout}>Logout</Link></li>

@@ -43,7 +43,6 @@ const PostWithImage = ({ post }) => {
                 <i className="fas fa-thumbs-up" style={{ margin: '0 1rem' }}></i>
                 {likes.length}
               </button>
-            
           </div>
         </div>
       </section>
