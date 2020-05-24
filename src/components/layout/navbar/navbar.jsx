@@ -20,8 +20,6 @@ export default function Navbar() {
     }
   }, [])
 
-  console.log('rerender')
-
   const userLogout = () => {
     setIsLoggedIn(false)
     Cookie.remove('token')
@@ -31,7 +29,7 @@ export default function Navbar() {
     <ul>
       <li><Link to="/main">Board</Link></li>
       <li><Link to="/profile">{ user?.username }</Link></li>
-      <li><Link to="/settings"><i class="fas fa-cog"></i></Link></li>
+      <li><Link to="/settings"><i className="fas fa-cog"></i></Link></li>
       <li><Link to="/" onClick={userLogout}>Logout</Link></li>
     </ul>
   )

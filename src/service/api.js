@@ -7,6 +7,8 @@ import { loadFile } from '../utils/imagehelper'
 import { getUser } from "../components/profile/profile_slice";
 import { setTransactions } from "../components/transactions-table/transaction_slice";
 import { setUsersPosts } from "../components/post/userPosts_slice";
+import { setCatgoryExpenses } from "../components/profile/expenses_slice";
+import { setUserStats } from "../components/profile/userstats_slice";
 
 export const getGeneralInfo = async () => {
   const response = await axios({
@@ -17,6 +19,24 @@ export const getGeneralInfo = async () => {
   const resObject = response.data
 
   store.dispatch(setGeneralData(resObject))
+
+  return resObject
+}
+
+export const getUserStats = async () => {
+  const token = Cookie.get('token')
+
+  const response = await axios({
+    method: 'GET',
+    url: '/api/v1/transaction/total_inc_exp_bal',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  const resObject = response.data
+
+  store.dispatch(setUserStats(resObject))
 
   return resObject
 }
@@ -218,4 +238,21 @@ export const likePost = async (postId) => {
     postId,
     likes: response.data.data
   }))
+}
+
+export const expensesByCategory = async () => {
+  const token = Cookie.get('token')
+
+  const response = await axios({
+    method: 'GET',
+    url: '/api/v1/transaction/expenses_by_category',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  })
+
+  const resObject = response.data.categoryExpenses
+  store.dispatch(setCatgoryExpenses(resObject))
+
+  return resObject
 }

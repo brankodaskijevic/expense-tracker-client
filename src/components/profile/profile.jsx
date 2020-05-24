@@ -9,11 +9,15 @@ import {
   getUsersTransaction,
   usersPosts,
   postTransaction,
+  expensesByCategory,
+  getUserStats
 } from "../../service/api";
 import Transaction from "../transactions-table/transaction";
 import Post from "../post/post";
 import PostWithImage from "../postWithImage/postWithImage";
 import Modal from "react-modal";
+import Chart from "../chart/chart";
+import UserStatsContainer from "../userStatsContainer/userStatsContainer";
 
 const Profile = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -24,6 +28,8 @@ const Profile = () => {
 
   const transactions = useSelector((state) => state.transactions.transactions);
   const posts = useSelector((state) => state.userPosts.posts);
+  const categoryExpenses = useSelector((state) => state.categoryExpenses.expenses)
+  const userAccStats = useSelector((state) => state.userStats)
 
   useEffect(() => {
     if (transactions === undefined) {
@@ -42,6 +48,21 @@ const Profile = () => {
       usersPosts();
     }
   }, []);
+
+  useEffect(() => {
+    if (categoryExpenses === undefined) {
+      expensesByCategory()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (userAccStats.totalIncomes === undefined ||
+        userAccStats.totalExpenses === undefined ||
+        userAccStats.totalBalance === undefined
+      ) {
+      getUserStats()
+    }
+  }, [])
 
   const getTransactions = () => {
     if (transactions !== undefined) {
@@ -75,7 +96,6 @@ const Profile = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData)
 
     try {
       await postTransaction(formData)
@@ -145,12 +165,13 @@ const Profile = () => {
         <Tabs>
           <TabList>
             <Tab>Info</Tab>
-            <Tab>Transactions Table</Tab>
+            <Tab>Expense/Income Table</Tab>
             <Tab>My Posts</Tab>
           </TabList>
 
           <TabPanel>
-            <h2>Any content 1</h2>
+            <UserStatsContainer data={userAccStats} />
+            <Chart data={categoryExpenses} />
           </TabPanel>
           <TabPanel>
             {/* <Link
@@ -163,7 +184,7 @@ const Profile = () => {
               className={`${styles.btn} ${styles.btnPrimary} ${styles.lead}`}
               onClick={() => setModalIsOpen(true)}
             >
-              Add Transaction
+              Add Expense/Income
             </button>
             <Modal
               isOpen={modalIsOpen}
@@ -214,6 +235,7 @@ const Profile = () => {
                   <div className={styles.formGroup}>
                     <label htmlFor="amount">Category of Transaction</label>
                     <select name="category" onChange={onCategoryChange}>
+                      <option value="">Category is required*</option>
                       <option value="other">Other</option>
                       <option value="groceries">Groceries</option>
                       <option value="home">Home</option>

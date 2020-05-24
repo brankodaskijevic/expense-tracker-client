@@ -1,0 +1,52 @@
+.userStatsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 8rem;
+}
+
+.userTotalBalanceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.userStatsRigtGrid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.userTotalIncContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.userTotalExpContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.blueColor {
+  color: #2f89fc;
+  margin-left: 1rem;
+}
+
+.greenColor {
+  color: #28a745;
+  margin-left: 1rem;
+}
+
+.redColor {
+  color: #dc3545;
+  margin-left: 1rem;
+}
