@@ -16,8 +16,8 @@ const Transaction = ({ transaction }) => {
           {category}
         </td>
         <td className={amount > 0 ? styles.greenText : styles.redText}>
-          {amount > 0 ? "+" : "-"}
-          ${numberWithCommas(amount)}
+          {amount > 0 ? "+" : ""}
+          {numberWithCommas(amount)}€
         </td>
       </tr>
     </Fragment>
