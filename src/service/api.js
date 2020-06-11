@@ -13,7 +13,7 @@ import { setUserStats } from "../components/profile/userstats_slice";
 export const getGeneralInfo = async () => {
   const response = await axios({
     method: 'GET',
-    url: 'https://dask-expense-tracker-api.herokuapp.com/api/v1/users/general_info'
+    url: 'api/v1/users/general_info'
   });
 
   const resObject = response.data
