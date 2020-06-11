@@ -13,7 +13,7 @@ import { setUserStats } from "../components/profile/userstats_slice";
 export const getGeneralInfo = async () => {
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/users/general_info'
+    url: 'api/v1/users/general_info'
   });
 
   const resObject = response.data
@@ -28,7 +28,7 @@ export const getUserStats = async () => {
 
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/transaction/total_inc_exp_bal',
+    url: 'api/v1/transaction/total_inc_exp_bal',
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -45,7 +45,7 @@ export const login = async (formData) => {
   console.log('login')
   const response = await axios({
     method: 'POST',
-    url: '/api/v1/auth/login',
+    url: 'api/v1/auth/login',
     data: formData,
   });
 
@@ -59,7 +59,7 @@ export const login = async (formData) => {
 export const register = async (formData) => {
   const response = await axios({
     method: 'POST',
-    url: '/api/v1/users',
+    url: 'api/v1/users',
     data: formData
   })
 
@@ -71,7 +71,7 @@ export const register = async (formData) => {
 export const getAllPosts = async () => {
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/post/all'
+    url: 'api/v1/post/all'
   });
 
   const resObject = response.data
@@ -90,7 +90,7 @@ export const postPost = async (formData) => {
 
   const response = await axios({
     method: 'POST',
-    url: '/api/v1/post',
+    url: 'api/v1/post',
     data: formData,
     headers: {
       'Authorization': `Bearer ${token}`
@@ -107,7 +107,7 @@ export const getLoggedUser = async () => {
 
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/users',
+    url: 'api/v1/users',
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -124,7 +124,7 @@ export const getUsersTransaction = async () => {
 
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/transaction',
+    url: 'api/v1/transaction',
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -141,7 +141,7 @@ export const postTransaction = async (formData) => {
 
   const response = await axios({
     method: 'POST',
-    url: '/api/v1/transaction',
+    url: 'api/v1/transaction',
     data: formData,
     headers: {
       'Authorization': `Bearer ${token}`
@@ -158,7 +158,7 @@ export const usersPosts = async () => {
 
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/post',
+    url: 'api/v1/post',
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -175,7 +175,7 @@ export const updateUser = async (formData) => {
 
   const response = await axios({
     method: 'PATCH',
-    url: '/api/v1/users',
+    url: 'api/v1/users',
     data: formData,
     headers: {
       'Authorization': `Bearer ${token}`
@@ -192,7 +192,7 @@ export const updateUserAvatar = async (formData) => {
 
   const response = await axios({
     method: 'PATCH',
-    url: '/api/v1/users/avatar',
+    url: 'api/v1/users/avatar',
     data: formData,
     headers: {
       'Authorization': `Bearer ${token}`
@@ -209,7 +209,7 @@ export const udpatePassword = async (formData) => {
 
   const response = await axios({
     method: 'PATCH',
-    url: '/api/v1/users/password',
+    url: 'api/v1/users/password',
     data: formData,
     headers: {
       'Authorization': `Bearer ${token}`
@@ -226,7 +226,7 @@ export const likePost = async (postId) => {
 
   const response = await axios({
     method: 'POST',
-    url: `/api/v1/post/like/${postId}`,
+    url: `api/v1/post/like/${postId}`,
     headers: {
       'Authorization': `Bearer ${token}`
     },
@@ -245,7 +245,7 @@ export const expensesByCategory = async () => {
 
   const response = await axios({
     method: 'GET',
-    url: '/api/v1/transaction/expenses_by_category',
+    url: 'api/v1/transaction/expenses_by_category',
     headers: {
       'Authorization': `Bearer ${token}`
     }
