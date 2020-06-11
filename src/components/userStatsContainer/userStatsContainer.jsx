@@ -7,8 +7,6 @@ const UserStatsContainer = ({ data }) => {
   const TOTAL_INCOME = data.totalIncomes;
   const TOTAL_EXPENSE = data.totalExpenses;
 
-  console.log(TOTAL_BALANCE);
-
   return (
     <Fragment>
       <div className={styles.userStatsContainer}>

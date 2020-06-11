@@ -1,7 +1,10 @@
 .userStatsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid #eee;
 }
 
 .userTotalBalanceContainer {

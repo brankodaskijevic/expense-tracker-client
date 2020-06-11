@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react'
-import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
+import React from 'react'
+import { Doughnut } from 'react-chartjs-2';
 import styles from './chart.module.css'
 
 const Chart = ({ data }) => {
-
-  console.log(data)
 
   const chartData = {
     labels: [
@@ -34,7 +32,7 @@ const Chart = ({ data }) => {
   }
 
   return (
-    <Fragment>
+    <div className={styles.doughmutContainer} >
       <p className={styles.mainTitle}>Doughnut Chart based on Category Expenses/Incomes</p>
       <Doughnut 
         data={chartData}
@@ -45,7 +43,7 @@ const Chart = ({ data }) => {
           }
         }
       />
-    </Fragment>
+    </div>
   )
 }
 

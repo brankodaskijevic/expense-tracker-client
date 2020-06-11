@@ -1,14 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import styles from "./postWithImage.module.css";
-import { useSelector } from "react-redux";
 import { likePost } from "../../service/api";
 
 const PostWithImage = ({ post }) => {
   const { description, likes, photo, user } = post;
 
   const defaultImage =
-    "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png";
+    "https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-1506810-1278719.png";
 
   const onLike = () => {
     likePost(post._id);

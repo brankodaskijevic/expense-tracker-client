@@ -6,7 +6,7 @@ const Post = ({ post }) => {
   const { description, likes, user } = post;
 
   const defaultImage =
-    "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png";
+    "https://cdn.iconscout.com/icon/premium/png-512-thumb/profile-1506810-1278719.png";
 
   return (
     <Fragment>
