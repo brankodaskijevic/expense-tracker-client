@@ -44,9 +44,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <h1>
-        <a href="dashboard.html">
+        <Link to="/">
           <i className="fas fa-calculator"></i> ExpenseTracker
-        </a>
+        </Link>
       </h1>
       { isLoggedIn ? authLinks : defaultLinks }
     </nav>
