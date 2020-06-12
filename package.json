@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "author": "Branko Daskijević",
   "private": true,
-  "homepage": "https://brankodaskijevic.github.io/expense-tracker-client/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.5",
     "@testing-library/jest-dom": "^4.2.4",
