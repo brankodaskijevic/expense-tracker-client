@@ -10,10 +10,12 @@ import { setUsersPosts } from "../components/post/userPosts_slice";
 import { setCatgoryExpenses } from "../components/profile/expenses_slice";
 import { setUserStats } from "../components/profile/userstats_slice";
 
+const APP_URI = 'https://dask-expense-tracker-api.herokuapp.com'
+
 export const getGeneralInfo = async () => {
   const response = await axios({
     method: 'GET',
-    url: 'api/v1/users/general_info'
+    url: `${APP_URI}/api/v1/users/general_info`
   });
 
   const resObject = response.data
